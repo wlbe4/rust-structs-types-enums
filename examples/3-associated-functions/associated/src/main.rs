@@ -25,6 +25,9 @@ impl User {
     fn deactivate(&mut self) {
         self.active = false;
     }
+    fn update_uri(&mut self, uri: String) {
+        self.uri = uri;
+    }
 }
 
 fn main() {
@@ -37,6 +40,8 @@ fn main() {
     println!("Account {} status is: {}", new_user.username, new_user.active);
     new_user.deactivate();
     println!("Account {} status is: {}", new_user.username, new_user.active);
-    let user_from_email = User::from_email(String::from("lior@gmail.com"));
+    let mut user_from_email = User::from_email(String::from("lior@gmail.com"));
     println!("Hello, {}!", user_from_email.username);
+    user_from_email.update_uri(String::from("https://lior.com"));
+    println!("Account {} uri is: {}", user_from_email.username, user_from_email.uri);
 }
