@@ -3,13 +3,25 @@
 struct Person {
     first_name: String,
     last_name: String,
+    email: String,
+    phone_number: String,
     age: u8,
 }
 
+// implement a method that calculates and returns the full name of the person by concatenating the first name and last name.
+impl Person {
+    fn full_name(&self) -> String {
+        format!("{} {}", self.first_name, self.last_name)
+    }
+}
+
 fn main() {
-    println!("{:?}", Person {
+    let person = Person {
         first_name: "John".to_string(),
         last_name: "Doe".to_string(),
+        email: "John@Doe.com".to_string(),
+        phone_number: "123-456-7890".to_string(),
         age: 25,
-    });
+    };
+    println!("{:?} full name: {}", person, person.full_name());
 }
