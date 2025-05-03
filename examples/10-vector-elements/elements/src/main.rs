@@ -1,3 +1,8 @@
+fn add_number_to_start_and_end(v: &mut Vec<i32>, number: i32) {
+    v.insert(0, number);
+    v.push(number);
+}
+
 fn main() {
     let mut v = vec![1, 2, 3];
     v.push(4);
@@ -15,5 +20,7 @@ fn main() {
 
     // insert items at a given index
     v.insert(0, 0);
-    println!("{:?}", v); // Output: [0, 1, 2, 3, 4, 5, 6, 7, 8] 
+    println!("{:?}", v); // Output: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+    add_number_to_start_and_end(&mut v, 9);
+    println!("{:?}", v); // Output: [9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9] 
 }
