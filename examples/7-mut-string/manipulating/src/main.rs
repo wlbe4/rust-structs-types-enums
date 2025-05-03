@@ -1,3 +1,14 @@
+
+fn find_longest_word(sentence: &str) -> String {
+    let mut longest_word = String::new();
+    for word in sentence.split_whitespace() {
+        if word.len() > longest_word.len() {
+            longest_word = word.to_string();
+        }
+    }
+    longest_word
+}
+
 fn main() {
     let sentence = "the quick brown fox jumps over the lazy dog".to_string();
     // Use slicing to get the first three characters of the sentence
@@ -24,6 +35,8 @@ fn main() {
         }
     }
     println!("a: {}, e: {}, i: {}, o: {}, u: {}", a, e, i, o, u);
+    let longest = find_longest_word(&sentence);
+    println!("Longest word: {}", longest);
     // for c in sentence.chars() {
     //     match c {
     //         'a' | 'e' | 'i' | 'o' | 'u' => println!("Got a vowel!"),
